@@ -1,0 +1,18 @@
+<h1>Da Burger!</h1>
+
+<p>You can have your own burger and eat it too!</p>
+
+<form action="submit">
+    <input type="text" placeholder="Name your burger">
+    <button>Create Burger</button>
+</form>
+
+<div class="uneaten">
+    {{#each burger}}
+    {{#unless Devoured}}
+    <p>This is a test</p>
+    {{/unless}}
+    {{/each}}
+</div>
+
+<div class="eaten"></div>
