@@ -12,8 +12,9 @@ var burger = {
       cb(res);
     });
   },
-  update: function(objColVals, condition, cb) {
-    orm.updateOne(data, function(res) {
+  update: function(data, id, cb) {
+    console.log("data in burger.js:  " + data);
+    orm.updateOne(data, id, function(res) {
       cb(res);
     });
   }

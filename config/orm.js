@@ -12,23 +12,24 @@ var orm = {
     });
   },
   insertOne: function(data, cb) {
-    var queryString =
-      "INSERT INTO burgers (burger_name, devoured) VALUES (??, ??)";
-    connection.query(queryString, vals, function(err, result) {
+    console.log("This is what insertOne() receives: ");
+    console.log(data);
+    var queryString = "INSERT INTO burgers (burger_name) VALUES (?);";
+    connection.query(queryString, data, function(err, result) {
       if (err) {
         throw err;
       }
       cb(result);
     });
   },
-  updateOne: function(data, cb) {
-    var queryString = "UPDATE burgers;";
-    queryString += " SET ";
-    queryString += objToSql(vals);
-    queryString += " WHERE id = " + id;
+  updateOne: function(data, id, cb) {
+    var queryString = "UPDATE burgers";
+    queryString += " SET devoured = ?";
+    queryString += " WHERE id = ?";
 
     console.log(queryString);
-    connection.query(queryString, function(err, result) {
+    console.log("data in ORM: " + data);
+    connection.query(queryString, [data, id], function(err, result) {
       if (err) {
         throw err;
       }

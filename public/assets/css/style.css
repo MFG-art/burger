@@ -27,3 +27,11 @@ body {
   padding: 20px;
   font-size: 30px;
 }
+
+.uneaten,
+.eaten {
+  background-color: lightblue;
+  border: 1px solid blue;
+  margin: 50px;
+  padding: 50px;
+}

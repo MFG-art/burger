@@ -4,18 +4,27 @@
 
     <p>You can have your own burger and eat it too!</p>
 
-    <form action="submit">
-        <input type="text" placeholder="Name your burger">
-        <button>Create Burger</button>
-    </form>
+
+    <input type="text" placeholder="Name your burger" id="inputBurger">
+    <button id="submitBurger">Create Burger</button>
+
 
     <div class="uneaten">
+        <h2>Uneaten burgers: </h2>
         {{#each burger}}
-        {{#unless Devoured}}
-        <p>This is a test</p>
+        {{#unless this.devoured}}
+        {{> burger-block}}
         {{/unless}}
         {{/each}}
     </div>
 
-    <div class="eaten"></div>
+    <div class="eaten">
+        <h2>Eaten burgers: </h2>
+        {{#each burger}}
+        {{#if this.devoured}}
+        {{> burger-block}}
+        {{/if}}
+        {{/each}}
+    </div>
+</div>
 </div>
